@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, ImageBackground, FlatList, } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { createStackNavigator, createAppContainer, createBottomTabNavigator } from 'react-navigation'
-import AssistantScreen from "./../screens/AssistantScreen"
+import AssistantScreen from "../screens/HandicapeScreen"
 import Home1 from "./../screens/Home1"
 import Home2 from "./../screens/Home2"
 const AppTabNavigator = createBottomTabNavigator({
@@ -35,7 +35,7 @@ const AppTabNavigator = createBottomTabNavigator({
                     focused={focused}
                     tintColor={tintColor}
                 />
-            )
+            )  
         }
     },
 
