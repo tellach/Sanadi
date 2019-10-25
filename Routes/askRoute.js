@@ -12,6 +12,6 @@ UserRouter.put('/acceptAsk/:idUser',verifyToken,acceptAsk);
 UserRouter.post('/getAsks',verifyToken,getAsks);
 UserRouter.delete('/cancelAsk/:idUser',verifyToken,cancelAsk);
 UserRouter.put('/confirmeAsk/:idUser',verifyToken,cancelAsk);
-UserRouter.get('/getAsk',getAsksActif);
+UserRouter.post('/getAsk',getAsksActif);
 
 export default UserRouter;

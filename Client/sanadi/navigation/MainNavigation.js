@@ -6,8 +6,6 @@ import CancelHelpScreen from "./../screens/CancelHelpScreen"
 import HandicapeScreen from "./../screens/HandicapeScreen"
 import Home1 from "./../screens/Home1"
 import Home2 from "./../screens/Home2"
-
-
 const AppTabNavigator = createBottomTabNavigator({
 
     
@@ -17,7 +15,7 @@ const AppTabNavigator = createBottomTabNavigator({
             title: "HOME",
             tabBarIcon: ({ focused, tintColor }) => {
                 
-                if(focused)
+                if(focused)   
                 {
                      return (
                          <View style = {styles.focusedImageView}>
