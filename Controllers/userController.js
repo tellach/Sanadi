@@ -27,6 +27,7 @@ const addUser = (req,res)=>{
     const password=req.body.password;
     const phone=req.body.phone;
     const dateOfBirth=req.body.dateOfBirth;
+    const region=req.body.region;
     const assistant=req.body.assistant;
     console.log(assistant)
     if(assistant=="true"){
@@ -41,6 +42,7 @@ const addUser = (req,res)=>{
                         password: bcryptedPassword,
                         phone: phone,
                         dateOfBirth:dateOfBirth,
+                        region:region,
                         point:0
                     });
 
@@ -72,7 +74,8 @@ const addUser = (req,res)=>{
                         password: bcryptedPassword,
                         phone: phone,
                         dateOfBirth:dateOfBirth,
-                        disability:disability
+                        disability:disability,
+                        region:region,
                     });
 
                     newUser.save((err, user) => {

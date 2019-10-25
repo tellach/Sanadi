@@ -33,6 +33,10 @@ export const HandicapeSchema=new Schema({
         type:String,
         require:'phone is required'
     },
+    region:{
+        type:String,
+        require:'phone is required'
+    }
 
 
 })
