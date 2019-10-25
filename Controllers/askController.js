@@ -34,19 +34,60 @@ const askAssistance = (req,res)=>{
         }
     })
 }
+const askAssistance1 = (req,res)=>{
+
+            const handicapeEmail=req.body.handicapeEmail;
+            const state=req.body.state;
+            const region=req.body.region;
+            const Date=req.body.Date;
+            const newUser = new Ask({
+                handicapeEmail:handicapeEmail,
+                state: state,
+                region: region,
+                Date: Date,
+                AssistantEmail: null,
+                        });
+
+            newUser.save((err, user) => {
+                if (err) {
+                    res.send(err)
+
+                }
+                res.json(user)
+
+            })
+}
 const getAsks = (req,res) =>{
     jwt.verify(req.token,privatekey(), (err,authData)=>{
         if(err) res.sendStatus(403);
         else{
             const regionHandicape = req.body.regionHandicape
             const regionAssistant = req.body.regionAssistant
-            Ask.find({AssistantEmail:null,regionHandicape:regionAssistant},(err,ask)=>{
-                if(err) res.send(err);
-                res.json(ask);
-            })
+            if(regionHandicape==regionAssistant){
+                Ask.find({AssistantEmail:null},(err,ask)=>{
+                    if(err) res.send(err);
+                    res.json(ask);
+                })
+            }
+            else
+            {
+                res.json()
+            }
+
+
         }
     })
 }
+const getAsksActif = (req,res) =>{
+
+            const handicapeEmail = req.body.handicapeEmail
+                Ask.find({AssistantEmail:null,handicapeEmail:handicapeEmail},(err,ask)=>{
+                    if(err) res.send(err);
+                    res.json(ask);
+                })
+
+}
+
 
 const acceptAsk=(req,res) =>{
     jwt.verify(req.token,privatekey(), (err,authData)=>{
@@ -99,4 +140,4 @@ const confirmeAsk=(req,res) =>{
 
 
 
-export {acceptAsk,getAsks,askAssistance,cancelAsk,confirmeAsk}
+export {acceptAsk,getAsks,askAssistance,cancelAsk,confirmeAsk,askAssistance1,getAsksActif}

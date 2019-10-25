@@ -4,13 +4,15 @@ import { createAppContainer, createBottomTabNavigator } from 'react-navigation'
 import Navigation2 from "./Navigation2" 
 import CancelHelpScreen from "./../screens/CancelHelpScreen"
 import HandicapeScreen from "./../screens/HandicapeScreen"
+import Home1 from "./../screens/Home1"
+import Home2 from "./../screens/Home2"
 
 
 const AppTabNavigator = createBottomTabNavigator({
 
     
     Screen1: {
-        screen: CancelHelpScreen,
+        screen: Home2,
         navigationOptions: {
             title: "HOME",
             tabBarIcon: ({ focused, tintColor }) => {
@@ -73,7 +75,7 @@ const AppTabNavigator = createBottomTabNavigator({
     },
 
     Screen3: {
-        screen: HandicapeScreen,
+        screen: Home2,
         navigationOptions: {
             title: "LOCATION",
             tabBarIcon: ({ focused, tintColor }) => {

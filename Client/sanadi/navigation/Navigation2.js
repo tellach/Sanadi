@@ -13,7 +13,7 @@ const AppStackNavigator = createStackNavigator({
             gesturesEnabled: false,
         }
 
-    },
+    },   
     Screen2: {
         screen: CancelScreen,
         navigationOptions: {

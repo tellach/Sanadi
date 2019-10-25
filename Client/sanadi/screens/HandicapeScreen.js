@@ -17,7 +17,7 @@ export default class App extends React.Component {
       }  
 
     _addHelp(){
-        fetch('http://172.20.10.6:3000/askRoute/askAssistance1', {
+       /* fetch('http://172.20.10.6:3000/askRoute/askAssistance1', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -39,19 +39,21 @@ export default class App extends React.Component {
             }).catch((error) => {   
                 console.log("Api call error");
                 alert(error.message);
-            });
+            });*/
+        this.props.navigation.navigate('Screen2')
+
     }
     render() {
         return (
             <View style={styles.container}>
-                <Image source={require('./../assets/images/2.png')} style={styles.ImageStyle} resizeMode="contain"
+                <Image source={require('../assets/images/2.png')} style={styles.ImageStyle} resizeMode="contain"
                     resizeMethod="resize" />
                 <View style={styles.textinput}>
                     <RNPickerSelect
                         placeholderTextColor={'#596DB4'}
                         placeholder={{
-                            label: 'Choose your region :',
-                            value: null, 
+                            label: 'Choose your region :',  
+                            value: null,    
                             color: '#596DB4',
                             fontSize:22,
                             marginLeft:-50
@@ -114,7 +116,7 @@ const styles = StyleSheet.create({
         marginLeft: '5%',
         marginRight: '5%',
         marginTop: '0%',
-        marginBottom: '2%',
+        marginBottom: '8%',
         alignSelf: "center"
     },
     text:{
@@ -127,6 +129,7 @@ const styles = StyleSheet.create({
         marginBottom:15
     },
     button:{
+        textAlign:'center',
         alignItems: 'center',
         alignSelf: "center",
         backgroundColor: '#596DB4',
@@ -144,6 +147,7 @@ const styles = StyleSheet.create({
         }
     },
     btntext1:{
+        textAlign: 'center',
         color: '#fff',
         fontWeight: 'bold',
         fontSize:20,

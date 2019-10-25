@@ -1,35 +1,72 @@
 import React from 'react';
-import { StyleSheet, Text, View, ImageBackground, FlatList, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground, FlatList, Image, TouchableOpacity,ScrollView } from 'react-native';
 
 
 export default class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handicapeEmail='fff@gmail.com',
+        this.state = {
+            askCards:[]            
+        }
+    }
+
+    _loadAsks(email)
+    {
+        fetch('http://172.20.10.6:3000/askRoute/getAsk', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                handicapeEmail: this.handicapeEmail,
+
+            }),
+        }).then(response => response.json())
+            .then(responseJson => {
+                const l = responseJson
+                console.log(l)
+                this.setState({
+                    askCards: l,
+                })
+            }).catch((error) => {
+                console.log("Api call error");
+                alert(error.message);
+            });
+    }
+
+
     render() {
-        const { navigation } = this.props;
-
         return (
-            <View style={styles.container}>
-                <Image source={require('./../assets/images/3.png')} style={styles.ImageStyle} resizeMode="contain"
-                    resizeMethod="resize" />
-                <Text style={styles.text} >Lorem ipsum dolor sit amet,</Text>
-                <Text style={styles.text}> tota magna in ius.</Text>
-                <Text style={styles.text}>Assum salutatus mea ut, ferri</Text>
-                <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('Screen1')} >
-                    <Text style={styles.btntext1}>Cancel </Text>
-                </TouchableOpacity>
-            </View>
-
-        );
+            <View style={styles.container} onLayout={() => this._loadAsks(this.handicapeEmail)}>
+                <FlatList
+                    data={this.state.askCards}
+                    keyExtractor={(item) => item._id.toString()}
+                    renderItem={({ item }) =>
+                    <View>
+                         <Text>item.date</Text>
+                         <Text>item.state</Text>
+                         <Text>item.region</Text>
+                         <TouchableOpacity>
+                             <Text>cancel</Text>
+                         </TouchableOpacity>
+                    </View>}  
+                />     
+              </View>
+              
+        )
     }
 }
 
   
 const styles = StyleSheet.create({
     container: {
-
-        //backgroundColor: '#03224c',
+        backgroundColor: '#03224c',
         alignItems: 'center',
         justifyContent: 'center',
-
+        height: 200,
+        width: 400
     },
     ImageStyle: {
         width: 400,
@@ -70,7 +107,5 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 20,
     }
-
-
 });
 
