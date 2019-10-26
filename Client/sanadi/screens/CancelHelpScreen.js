@@ -82,7 +82,7 @@ export default class App extends React.Component {
                         </View>
                         <View style = {{flex: 1, justifyContent: 'flex-end', alignItems: 'flex-end'}}>
                             <TouchableOpacity style={styles.button} onPress={()=>this._cancelAsk(item._id.toString())}>
-                                <Text style = {{color: 'white',textAlign:'center'}}>cancel</Text>
+                                    <Text style={{ color: '#596DB4',textAlign:'center'}}>cancel</Text>
                             </TouchableOpacity>
                         </View>
                          
@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
     button: {
         alignItems: 'center',
         alignSelf: "center",
-        backgroundColor: 'red',
+        backgroundColor: '#e3e1ff',
         borderRadius: 50,
         height: 30,
         width: 70,
@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
         shadowRadius: 1,
         shadowOffset: {
             height: 0.5,
-            width: 0
+            width: 0    
         }
     },
     btntext1: {

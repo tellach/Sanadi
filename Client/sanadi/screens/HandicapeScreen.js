@@ -33,7 +33,7 @@ export default class App extends React.Component {
             .then(responseJson => {
                 const rep = responseJson;
                 console.log(rep)
-                alert("Ask assistance valid")
+                alert("Ask assistance saved")
 
             }).catch((error) => {   
                 console.log("Api call error");
