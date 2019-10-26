@@ -6,10 +6,10 @@ import DatePicker from 'react-native-datepicker'
 
 
 export default class App extends React.Component {
-    constructor(props) {
+    constructor(props) { 
         super(props)
-        this.state1 = "actif"
-        this.handicapeEmail = "fff@gmail.com"
+        this.RequestState = "waiting" 
+        this.handicapeEmail = "aymen@esi.dz"
         this.state = {
             region: "Region",
             Date: ""
@@ -17,12 +17,12 @@ export default class App extends React.Component {
       }  
 
     _addHelp(){
-       /* fetch('http://172.20.10.6:3000/askRoute/askAssistance1', {
+        fetch('http://172.20.10.6:3000/askRoute/askAssistance1', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
-            },
+            },      
             body: JSON.stringify({
                 handicapeEmail: this.handicapeEmail,
                 state: this.RequestState,
@@ -33,14 +33,12 @@ export default class App extends React.Component {
             .then(responseJson => {
                 const rep = responseJson;
                 console.log(rep)
-                this.props.navigation.navigate('Screen2')
-               
+                alert("Ask assistance valid")
 
             }).catch((error) => {   
                 console.log("Api call error");
                 alert(error.message);
-            });*/
-        this.props.navigation.navigate('Screen2')
+            });
 
     }
     render() {
@@ -54,7 +52,7 @@ export default class App extends React.Component {
                         placeholder={{
                             label: 'Choose your region :',  
                             value: null,    
-                            color: '#596DB4',
+                            color: '#596DB4',  
                             fontSize:22,
                             marginLeft:-50
                         }}

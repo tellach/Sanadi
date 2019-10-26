@@ -81,7 +81,7 @@ const getAsks = (req,res) =>{
 const getAsksActif = (req,res) =>{
 
             const handicapeEmail = req.body.handicapeEmail
-                Ask.find({AssistantEmail:null,handicapeEmail:handicapeEmail},(err,ask)=>{
+                Ask.find({state:'waiting', handicapeEmail:handicapeEmail},(err,ask)=>{
                     if(err) res.send(err);
                     res.json(ask);
                 })
@@ -106,9 +106,8 @@ const acceptAsk=(req,res) =>{
     })
 }
 const cancelAsk=(req,res) =>{
-    jwt.verify(req.token,privatekey(), (err,authData)=>{
-        if(err) res.sendStatus(403);
-        else{
+
+            console.log(req.params.idUser)
             Ask.remove(
                 {_id:req.params.idUser},
                 (err)=>{
@@ -118,8 +117,6 @@ const cancelAsk=(req,res) =>{
                     res.json({message:'delete successfully'});
                 }
             )
-        }
-    })
 }
 const confirmeAsk=(req,res) =>{
     jwt.verify(req.token,privatekey(), (err,authData)=>{

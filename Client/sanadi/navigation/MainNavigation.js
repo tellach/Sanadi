@@ -10,10 +10,10 @@ const AppTabNavigator = createBottomTabNavigator({
 
     
     Screen1: {
-        screen: Home2,
+        screen: CancelHelpScreen,
         navigationOptions: {
             title: "HOME",
-            tabBarIcon: ({ focused, tintColor }) => {
+            tabBarIcon: ({ focused, tintColor }) => {  
                 
                 if(focused)   
                 {
@@ -42,7 +42,7 @@ const AppTabNavigator = createBottomTabNavigator({
 
     },
     Screen2: {
-        screen: Navigation2,
+        screen: HandicapeScreen,
         navigationOptions: {
             title: "ASSISTANT",
             tabBarIcon: ({ focused, tintColor }) =>{

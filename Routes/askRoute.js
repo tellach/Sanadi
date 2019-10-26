@@ -10,7 +10,7 @@ UserRouter.post('/askAssistance',verifyToken,askAssistance);
 UserRouter.post('/askAssistance1',askAssistance1);
 UserRouter.put('/acceptAsk/:idUser',verifyToken,acceptAsk);
 UserRouter.post('/getAsks',verifyToken,getAsks);
-UserRouter.delete('/cancelAsk/:idUser',verifyToken,cancelAsk);
+UserRouter.delete('/cancelAsk/:idUser',cancelAsk);
 UserRouter.put('/confirmeAsk/:idUser',verifyToken,cancelAsk);
 UserRouter.post('/getAsk',getAsksActif);
 
